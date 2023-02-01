@@ -16,8 +16,8 @@ void NTitleScene::Init()
 #pragma region	オーディオ初期化
 	audio = NAudio::GetInstance();
 	audio->Init();
-	soundData[0] = audio->LoadWave("clear_BGM.wav");
-	audio->PlayWave(soundData[0],true);
+	//soundData[0] = audio->LoadWave("clear_BGM.wav");
+	//audio->PlayWave(soundData[0],true);
 #pragma endregion
 #pragma region	カメラ初期化
 	camera.ProjectiveProjection();
@@ -49,7 +49,7 @@ void NTitleScene::Init()
 
 #pragma region オブジェクトの初期値設定
 	obj[0]->position = { 0,0,0 };
-	obj[1]->position = { 0,-2,0 };
+	obj[1]->position = { 0,-5,0 };
 	obj[1]->scale = { 10,0.1f,10 };
 	obj[2]->position = { 2,0,0 };
 
@@ -104,7 +104,8 @@ void NTitleScene::Update()
 	obj[0]->MoveKey();
 
 	sphere.pos = obj[0]->position;
-	plane.distance = obj[1]->position.Length();
+	NVector3 vec;
+	plane.distance = obj[1]->position.Dot(plane.normal);
 
 	for (size_t i = 0; i < maxObj; i++)
 	{
@@ -128,8 +129,11 @@ void NTitleScene::Draw()
 	}
 
 	//前景スプライト
-	foreSprite[0]->CommonBeginDraw();
-	foreSprite[0]->Draw();
+	if (isCol)
+	{
+		foreSprite[0]->CommonBeginDraw();
+		foreSprite[0]->Draw();
+	}
 
 	// 4.描画コマンドここまで
 #pragma endregion
