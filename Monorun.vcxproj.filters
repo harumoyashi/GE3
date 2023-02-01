@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Math">
+      <UniqueIdentifier>{35594c03-2a46-4b50-a03c-f5d9ad0fb236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Math">
+      <UniqueIdentifier>{36e43c5a-2df4-4c97-8539-21d375f3fa5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PipeLine">
+      <UniqueIdentifier>{692fb4dd-7ec8-492a-b743-ddd5b02e38f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Pipeline">
+      <UniqueIdentifier>{75147066-745e-461a-8284-c387afa640dc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NInput.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NWindows.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NDX12.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NMatrix4.h">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="NVector2.h">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="NVector3.h">
+      <Filter>ヘッダー ファイル\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="NRootParam.h">
+      <Filter>ヘッダー ファイル\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="NRootSignature.h">
+      <Filter>ヘッダー ファイル\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="NGPipeline.h">
+      <Filter>ヘッダー ファイル\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="NTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NPreDraw.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NMaterial.h">
+      <Filter>ヘッダー ファイル\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="NObj3d.h">
+      <Filter>ヘッダー ファイル\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="NSprite.h">
+      <Filter>ヘッダー ファイル\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="NSpriteManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NGameScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="NPostDraw.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NInput.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NWindows.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NDX12.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NMatrix4.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="NVector2.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="NVector3.cpp">
+      <Filter>ソース ファイル\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="NGPipeline.cpp">
+      <Filter>ソース ファイル\PipeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="NRootParam.cpp">
+      <Filter>ソース ファイル\PipeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="NRootSignature.cpp">
+      <Filter>ソース ファイル\PipeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="NTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NPreDraw.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NSpriteManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NGameScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="NMaterial.cpp">
+      <Filter>ソース ファイル\PipeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="NObj3d.cpp">
+      <Filter>ソース ファイル\PipeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="NSprite.cpp">
+      <Filter>ソース ファイル\PipeLine</Filter>
+    </ClCompile>
+    <ClCompile Include="NPostDraw.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shaders\Basic.hlsli">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="Resources\shaders\Sprite.hlsli">
+      <Filter>リソース ファイル</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Resources\shaders\BasicPS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\shaders\BasicVS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\shaders\SpritePS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\shaders\SpriteVS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
