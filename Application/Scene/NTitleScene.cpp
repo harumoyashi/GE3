@@ -102,6 +102,10 @@ void NTitleScene::Update()
 	NCamera::nowCamera = &camera;
 
 	obj[0]->MoveKey();
+	if (NInput::IsKey(DIK_UP)) { obj[1]->position.y += 0.5f; }
+	else if (NInput::IsKey(DIK_DOWN)) { obj[1]->position.y -= 0.5f; }
+	if (NInput::IsKey(DIK_RIGHT)) { obj[1]->position.x += 0.5f; }
+	else if (NInput::IsKey(DIK_LEFT)) { obj[1]->position.x -= 0.5f; }
 
 	sphere.pos = obj[0]->position;
 	NVector3 vec;
