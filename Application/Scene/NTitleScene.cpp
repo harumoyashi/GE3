@@ -44,14 +44,14 @@ void NTitleScene::Init()
 		obj[i]->Init();
 	}
 	obj[0]->SetModel(model[0].get());
-	obj[1]->SetModel(model[1].get());
-	obj[2]->SetModel(model[0].get());
+	obj[1]->SetModel(model[0].get());
+	obj[2]->SetModel(model[1].get());
 
 #pragma region オブジェクトの初期値設定
 	obj[0]->position = { 0,0,0 };
-	obj[1]->position = { 0,-5,0 };
-	obj[1]->scale = { 10,0.1f,10 };
-	obj[2]->position = { 2,0,0 };
+	obj[1]->position = { 2,0,0 };
+	obj[2]->position = { 0,0,0 };
+	obj[2]->scale = { 10,0.1f,10 };
 
 	//設定したのを適用
 	for (int i = 0; i < maxObj; i++)
@@ -62,7 +62,7 @@ void NTitleScene::Init()
 	sphere.pos = obj[0]->position;
 	sphere.radius = obj[0]->scale.x;
 	plane.normal = { 0,1,0 };
-	plane.distance = obj[1]->position.Length();
+	plane.distance = obj[2]->position.Length();
 #pragma endregion
 	//背景スプライト生成
 
@@ -77,15 +77,15 @@ void NTitleScene::Init()
 	// 3Dオブジェクトにライトをセット
 	NObj3d::SetLightGroup(lightGroup.get());
 
-	lightGroup->SetDirLightActive(0, false);
-	lightGroup->SetDirLightActive(1, false);
-	lightGroup->SetDirLightActive(2, false);
+	lightGroup->SetDirLightActive(0, true);
+	lightGroup->SetDirLightActive(1, true);
+	lightGroup->SetDirLightActive(2, true);
 
-	lightGroup->SetPointLightActive(0, true);
+	lightGroup->SetPointLightActive(0, false);
 	lightGroup->SetPointLightActive(1, false);
 	lightGroup->SetPointLightActive(2, false);
 
-	lightGroup->SetCircleShadowActive(0, false);
+	lightGroup->SetCircleShadowActive(0, true);
 }
 
 void NTitleScene::Update()
@@ -101,15 +101,33 @@ void NTitleScene::Update()
 	camera.CreateMatView();
 	NCamera::nowCamera = &camera;
 
-	obj[0]->MoveKey();
-	if (NInput::IsKey(DIK_UP)) { obj[1]->position.y += 0.5f; }
-	else if (NInput::IsKey(DIK_DOWN)) { obj[1]->position.y -= 0.5f; }
-	if (NInput::IsKey(DIK_RIGHT)) { obj[1]->position.x += 0.5f; }
-	else if (NInput::IsKey(DIK_LEFT)) { obj[1]->position.x -= 0.5f; }
+	if (timer < 10000)
+	{
+		timer += 0.02f;
+	}
+	else
+	{
+		timer = 0;
+	}
+	obj[0]->position.y = sinf(timer) * 2.0f;
+	if (NInput::IsKey(DIK_UP)) { obj[2]->position.y += 0.5f; }
+	else if (NInput::IsKey(DIK_DOWN)) { obj[2]->position.y -= 0.5f; }
+	if (NInput::IsKey(DIK_RIGHT)) { obj[2]->position.x += 0.5f; }
+	else if (NInput::IsKey(DIK_LEFT)) { obj[2]->position.x -= 0.5f; }
+
+	if (isCol)
+	{
+		obj[0]->model->material.SetColor(255, 0, 0, 255);
+	}
+	else
+	{
+		obj[0]->model->material.SetColor(255, 255, 255, 255);
+	}
+	obj[2]->model->material.SetColor(255, 255, 255, 255);
 
 	sphere.pos = obj[0]->position;
 	NVector3 vec;
-	plane.distance = obj[1]->position.Dot(plane.normal);
+	plane.distance = obj[2]->position.Dot(plane.normal);
 
 	for (size_t i = 0; i < maxObj; i++)
 	{
@@ -148,15 +166,15 @@ void NTitleScene::Reset()
 	// 3Dオブジェクトにライトをセット
 	NObj3d::SetLightGroup(lightGroup.get());
 
-	lightGroup->SetDirLightActive(0, false);
-	lightGroup->SetDirLightActive(1, false);
-	lightGroup->SetDirLightActive(2, false);
+	lightGroup->SetDirLightActive(0, true);
+	lightGroup->SetDirLightActive(1, true);
+	lightGroup->SetDirLightActive(2, true);
 
-	lightGroup->SetPointLightActive(0, true);
+	lightGroup->SetPointLightActive(0, false);
 	lightGroup->SetPointLightActive(1, false);
 	lightGroup->SetPointLightActive(2, false);
 
-	lightGroup->SetCircleShadowActive(0, false);
+	lightGroup->SetCircleShadowActive(0, true);
 }
 
 void NTitleScene::Finalize()

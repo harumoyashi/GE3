@@ -51,6 +51,8 @@ private:
 
 	std::unique_ptr<NLightGroup> lightGroup;
 
+	float timer;
+
 public:
 	//インスタンス取得
 	static NTitleScene* GetInstance();

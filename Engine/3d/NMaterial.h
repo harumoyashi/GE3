@@ -18,6 +18,7 @@ struct ConstBufferDataMaterial
 	float pad2;			//パディング
 	NVector3 specular;	//スペキュラー係数
 	float alpha;		//α値
+	NVector3 color;		//色
 };
 
 class NMaterial
@@ -35,6 +36,7 @@ public:
 	NVector3 diffuse;	//ディフューズ影響度
 	NVector3 specular;	//スペキュラー影響度
 	float alpha;		//α値
+	NVector3 color;		//色
 	std::string textureFilename;	//テクスチャファイル名
 	NTexture texture;
 

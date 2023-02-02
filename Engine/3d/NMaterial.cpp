@@ -8,7 +8,8 @@ NMaterial::NMaterial()
 	ambient = { 0.3f,0.3f,0.3f };
 	diffuse = { 0.0f,0.0f,0.0f };
 	specular = { 0.0f,0.0f,0.0f };
-	alpha = 1.0f;
+	alpha = 255.0f;
+	color = { 255.0f,255.0f,255.0f };
 }
 
 NMaterial::~NMaterial()
@@ -75,19 +76,23 @@ void NMaterial::TransferLight()
 
 void NMaterial::TransferColor()
 {
+	//0.0f~1.0f‚É’¼‚·
+	color.x /= 255.0f;
+	color.y /= 255.0f;
+	color.z /= 255.0f;
+	alpha /= 255.0f;
 	//’l‚ð‘‚«ž‚Þ‚ÆŽ©“®“I‚É“]‘—‚³‚ê‚é
-	constMapMaterial->alpha = 1.0f;
+	constMapMaterial->color = color;
+	constMapMaterial->alpha = alpha;
 }
 
 void NMaterial::SetColor(int R, int G, int B, int A)
 {
-	XMFLOAT4 color = {};
-
-	color.x = static_cast<float>(R) / 255.0f;
-	color.y = static_cast<float>(G) / 255.0f;
-	color.z = static_cast<float>(B) / 255.0f;
-	alpha = static_cast<float>(A) / 255.0f;
-	constMapMaterial->alpha = alpha;
+	color.x = static_cast<float>(R);
+	color.y = static_cast<float>(G);
+	color.z = static_cast<float>(B);
+	alpha = static_cast<float>(A);
+	TransferColor();
 }
 
 void NMaterial::SetCBV()

@@ -33,7 +33,7 @@ float4 main(VSOutput input) : SV_TARGET
 	        // ‹¾–Ê”½ŽËŒõ
             float3 specular = pow(saturate(dot(reflect, eyedir)), shininess) * m_specular;
 	        // ‘S‚Ä‰ÁŽZ‚·‚é
-            shadecolor.rgb += (diffuse + specular) * dirLights[i].lightcolor;
+            shadecolor.rgb += (diffuse + specular) * dirLights[i].lightcolor * m_color;
             shadecolor.a = m_alpha;
         }
     }
@@ -61,7 +61,7 @@ float4 main(VSOutput input) : SV_TARGET
 	        // ‹¾–Ê”½ŽËŒõ
             float3 specular = pow(saturate(dot(reflect, eyedir)), shininess) * m_specular;
 	        // ‘S‚Ä‰ÁŽZ‚·‚é
-            shadecolor.rgb += atten * (diffuse + specular) * pointLights[i].lightcolor;
+            shadecolor.rgb += atten * (diffuse + specular) * pointLights[i].lightcolor * m_color;
             shadecolor.a = m_alpha;
         }
     }
@@ -96,7 +96,7 @@ float4 main(VSOutput input) : SV_TARGET
 	        // ‹¾–Ê”½ŽËŒõ
             float3 specular = pow(saturate(dot(reflect, eyedir)), shininess) * m_specular;
 	        // ‘S‚Ä‰ÁŽZ‚·‚é
-            shadecolor.rgb += atten * (diffuse + specular) * spotLights[i].lightcolor;
+            shadecolor.rgb += atten * (diffuse + specular) * spotLights[i].lightcolor * m_color;
             shadecolor.a = m_alpha;
         }
     }
